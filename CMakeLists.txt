@@ -19,6 +19,8 @@ add_library(pussy STATIC
     src/allocator_stdlib.c
     src/dump_bitmap.c
     src/dump_hex.c
+    src/sync_event.c
+    src/timespec.c
 )
 
 target_include_directories(pussy PUBLIC . include libpussy)
