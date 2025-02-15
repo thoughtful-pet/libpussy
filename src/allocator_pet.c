@@ -1,4 +1,6 @@
-#define _GNU_SOURCE
+#ifndef _GNU_SOURCE
+#   define _GNU_SOURCE
+#endif
 
 #include <errno.h>
 #include <limits.h>
@@ -754,7 +756,7 @@ static void _init()
     }
 
     // init mutex
-    if (mtx_init(&lock, mtx_plain | mtx_recursive) != thrd_success) {
+    if (mtx_init(&lock, mtx_plain) != thrd_success) {
         ERR("cannot init mutex\n");
     }
 
