@@ -59,16 +59,16 @@ static void check_region(const char* caller_name, void* block, unsigned nbytes)
         if (num_damaged_upper && num_damaged_lower) {
             fprintf(stderr, "%s: damaged %u bytes below %p and %u bytes above %u\n",
                     caller_name, num_damaged_lower, block, num_damaged_upper, nbytes);
-            dump_hex(stderr, region_start, BUBBLEWRAP);
-            dump_hex(stderr, block_end, BUBBLEWRAP);
+            dump_hex_simple(stderr, region_start, BUBBLEWRAP);
+            dump_hex_simple(stderr, block_end, BUBBLEWRAP);
         } else if (num_damaged_upper) {
             fprintf(stderr, "%s: damaged %u bytes above %p + %u\n",
                     caller_name, num_damaged_upper, block, nbytes);
-            dump_hex(stderr, block_end, BUBBLEWRAP);
+            dump_hex_simple(stderr, block_end, BUBBLEWRAP);
         } else {
             fprintf(stderr, "%s: damaged %u bytes below %p\n",
                     caller_name, num_damaged_lower, block);
-            dump_hex(stderr, region_start, BUBBLEWRAP);
+            dump_hex_simple(stderr, region_start, BUBBLEWRAP);
         }
         exit(1);
     }
